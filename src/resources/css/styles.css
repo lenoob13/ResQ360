@@ -1,0 +1,119 @@
+/* Racine - arrière-plan global */
+.root {
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-background-color: #f9f9f9;
+    -fx-text-fill: #333333;
+}
+
+/* Barre supérieure */
+.hbox {
+    -fx-background-color: #BB2F15;
+    -fx-padding: 10 20 10 20;
+    -fx-alignment: center-left;
+}
+
+/* Boutons du header (logo et déconnexion) */
+.button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 6 12;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 1);
+    -fx-transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Labels principaux */
+.label {
+    -fx-text-fill: #222222;
+}
+
+/* Labels titres */
+.label#bjrUser {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #BB2F15;
+    -fx-padding: 0 0 10 0;
+}
+
+.label#txtBienvenue {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 15 0;
+}
+
+.label#infoPersoTxt,
+.label#dispoTxt,
+.label#supTxt {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #444444;
+    -fx-padding: 8 0 4 0;
+}
+
+/* Boutons latéraux */
+.button#infoPersoSauvButton,
+.button#dispoSauvButton,
+.button#deleteAccountButton {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #BB2F15;
+    -fx-font-weight: 600;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(187,47,21,0.3), 5, 0, 0, 2);
+    -fx-transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button#infoPersoSauvButton:hover,
+.button#dispoSauvButton:hover {
+    -fx-background-color: #BB2F15;
+    -fx-text-fill: white;
+}
+
+.button#deleteAccountButton:hover {
+    -fx-background-color: #a02310;
+    -fx-text-fill: white;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #e6e6e6;
+    -fx-padding: 10;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}
+
+/* VBox dans scroll pane (listEvent) */
+#listEvent {
+    -fx-background-color: #e6e6e6;
+    -fx-padding: 15;
+    -fx-background-radius: 12;
+    -fx-spacing: 10;
+}
+
+/* Texte dans la liste */
+#listEvent > .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-font-style: italic;
+}
+
+/* Padding général à gauche */
+.vbox {
+    -fx-padding: 20 20 20 30;
+}
+
+/* Curseur pointer partout où c'est cliquable */
+.button, .label:hover {
+    -fx-cursor: hand;
+}

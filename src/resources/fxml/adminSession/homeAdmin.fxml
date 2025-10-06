@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminSession.HomeAdminController">
+	<!-- Barre latérale "base" -->
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="20.0" style="-fx-background-color: #536878;">
+                <Button fx:id="logoButton" contentDisplay="GRAPHIC_ONLY" minWidth="100.0" onAction="#goHome" prefWidth="100.0" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fx:id="ButtonAction" fitHeight="50.0" fitWidth="66.0" preserveRatio="true">
+                            <image>
+                                <Image url="@/resources/images/logo_blanc.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Pane HBox.hgrow="ALWAYS" />
+                <Button fx:id="logOutButton" contentDisplay="GRAPHIC_ONLY" onAction="#logOut" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fx:id="buttonLogOut" fitHeight="50.0" fitWidth="35.0" preserveRatio="true">
+                            <image>
+                                <Image url="@/resources/images/quit.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!--  Info au centre  -->
+    <center>
+        <GridPane hgap="20.0" vgap="20.0">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="55.0" />
+                <ColumnConstraints percentWidth="45.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+            </rowConstraints>
+
+            <!-- Partie gauche avec le  WebView -->
+            <WebView fx:id="mapWebView" prefHeight="500.0" prefWidth="600.0" GridPane.columnIndex="0" />
+
+            <!-- Partie droite -->
+            <VBox spacing="20.0" GridPane.columnIndex="1">
+
+                <!-- Camembert & boutons alignés à droite -->
+                <HBox spacing="20.0">
+                    <VBox spacing="10.0">
+                        <Label style="-fx-font-size: 12px;" text="Pourcentage de complétion des épreuves :   " />
+                        <PieChart fx:id="pieChart" prefHeight="150.0" prefWidth="200.0" />
+                    </VBox>
+
+                    <Pane HBox.hgrow="ALWAYS" />
+
+                    <VBox alignment="TOP_RIGHT" spacing="10.0">
+                        <Button fx:id="gererEpreuvesButton" onAction="#manageEvents" style="-fx-background-color: white; -fx-font-size: 14px; -fx-border-radius: 5px; -fx-border-color: black;" text="Gérer épreuves/sauveteurs" />
+                        <Button fx:id="exhaustiveAssignmentButton" onAction="#exhaustiveAssignment" style="-fx-background-color: white; -fx-font-size: 14px; -fx-border-radius: 5px; -fx-border-color: black;" text="Affectation Exhaustif       " />
+                        <Button fx:id="gluttonousAssignmentButton" onAction="#gluttonousAssignment" style="-fx-background-color: white; -fx-font-size: 14px; -fx-border-radius: 5px; -fx-border-color: black;" text="Affectation Gloutonne    " />
+						<Button fx:id="exportCSVButton" onAction="#exportCSV" style="-fx-background-color: white; -fx-font-size: 14px; -fx-border-radius: 5px; -fx-border-color: black;" text="Exporter CSV                 " />
+					</VBox>
+                </HBox>
+
+                <!-- Graphique des diplomes -->
+                <VBox spacing="10.0">
+                    <Label style="-fx-font-size: 12px;" text="Répartition des diplômes :" />
+                    <BarChart fx:id="barChart" prefHeight="200.0" prefWidth="400.0">
+                        <xAxis>
+                            <CategoryAxis fx:id="xAxis" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="yAxis" />
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+            </VBox>
+        </GridPane>
+    </center>
+</BorderPane>

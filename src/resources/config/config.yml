@@ -1,0 +1,10 @@
+app:
+  name: ResQ360
+  version: 0.0.1
+
+database:
+  host: localhost
+  port: 3306
+  name: my_connection
+  user: ${DB_USER}
+  password: ${DB_PASSWORD}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rescuerSession.HomeRescuerController" stylesheets="@/resources/css/styles.css">
+    <!-- Barre latérale "base" -->
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="20.0" style="-fx-background-color: #BB2F15;">
+                <Button fx:id="logoButton" contentDisplay="GRAPHIC_ONLY" minWidth="100.0" onAction="#goHome" prefWidth="100.0" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fx:id="ButtonAction" fitHeight="50.0" fitWidth="66.0" preserveRatio="true">
+                            <image>
+                                <Image url="@/resources/images/logo_blanc.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Pane HBox.hgrow="ALWAYS" />
+                <Button fx:id="logOutButton" contentDisplay="GRAPHIC_ONLY" onAction="#logOut" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fx:id="buttonLogOut" fitHeight="50.0" fitWidth="35.0" preserveRatio="true">
+                            <image>
+                                <Image url="@/resources/images/quit.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane fx:id="split" dividerPositions="0.7" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <!-- info partie gauche -->
+                <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                    <children>
+                        <Label fx:id="bjrUser" text="Bonjour, [utilisateur]">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="txtBienvenue" text="Bienvenue sur votre page ResQ360" />
+                        <Label fx:id="infoPersoTxt" text="Consulter mes informations personelles :">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="infoPersoSauvButton" mnemonicParsing="false" onAction="#infoPersoSauv" style="-fx-background-color: e6e6e6;" text="informations personelles" />
+                        <Label fx:id="supTxt" text="Supprimer mon compte :">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="deleteAccountButton" mnemonicParsing="false" onAction="#deleteAccount" style="-fx-background-color: e6e6e6;" text="Supprimer" />
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                </VBox>
+
+                <!-- info partie droite -->
+                <ScrollPane fx:id="scrollEvent" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                        <VBox fx:id="listEvent" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: e6e6e6;">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" />
+                            </padding>
+                            <children>
+                                <Label text="DPS :">
+                                    <padding>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>

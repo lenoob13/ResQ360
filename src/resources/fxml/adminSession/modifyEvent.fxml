@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminSession.ModifyEventController">
+	<!-- Barre latérale "base" -->
+    <top>
+        <VBox spacing="10.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" spacing="20.0" style="-fx-background-color: #536878;">
+                <Button fx:id="logoButton" contentDisplay="GRAPHIC_ONLY" minWidth="100.0" onAction="#goHome" prefWidth="100.0" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="66.0" preserveRatio="true">
+                            <image>
+                                <Image url="@/resources/images/logo_blanc.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Pane HBox.hgrow="ALWAYS" />
+                <Button fx:id="logOutButton" contentDisplay="GRAPHIC_ONLY" onAction="#logOut" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="35.0" preserveRatio="true">
+                            <image>
+                                <Image url="@/resources/images/quit.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <HBox alignment="CENTER">
+				 <TextField fx:id="EpreuveTextField" prefWidth="190.0" promptText="                    Epreuve" />
+            </HBox>
+        </VBox>
+    </top>
+
+	<!-- Centre de la page -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20.0">
+		
+			<!-- Boutons retour & poubelle en haut à gauche -->
+            <HBox alignment="TOP_RIGHT" spacing="10.0">
+                <padding>
+                    <Insets right="20.0" top="10.0" />
+                </padding>
+                <Button fx:id="returnButton" contentDisplay="GRAPHIC_ONLY" onAction="#returnToPrevious" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" preserveRatio="true">
+                            <image>
+                                <Image url="@/resources/images/retour.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="deleteSauvButton" contentDisplay="GRAPHIC_ONLY" onAction="#deleteSauv" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" preserveRatio="true">
+                            <image>
+                                <Image url="@/resources/images/poubelle.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+			
+			<!-- Bloc principal -->
+            <HBox alignment="TOP_CENTER" spacing="60.0" style="-fx-background-color: #f9f9f9; -fx-border-radius: 20; -fx-background-radius: 20;">
+                <padding>
+                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                </padding>
+
+                <!-- Partie gauche -->
+                <VBox alignment="TOP_LEFT" prefWidth="420" spacing="20.0">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Liste des sauveteurs affecté :" />
+                    <ListView fx:id="sauvListContainer" prefHeight="150.0" prefWidth="400.0" />
+                    <Label text="Info importante :" />
+                    <TextArea fx:id="inFoImpEventTextField" prefHeight="60.0" prefWidth="400.0" wrapText="true" />
+                    <Label text="Localisation :" />
+                    <HBox spacing="10.0">
+                        <TextField fx:id="latitudeTextField" prefWidth="190.0" promptText="Latitude" />
+                        <TextField fx:id="longitudeTextField" prefWidth="190.0" promptText="Longitude" />
+                    </HBox>
+                </VBox>
+
+                <!-- Partie droite -->
+                <VBox alignment="TOP_LEFT" prefWidth="450" spacing="20.0">
+                    <GridPane hgap="50.0" vgap="10.0">
+                        <columnConstraints>
+                            <ColumnConstraints halignment="LEFT" />
+                            <ColumnConstraints halignment="LEFT" />
+                        </columnConstraints>
+
+                        <VBox spacing="6.0" GridPane.columnIndex="0">
+                            <HBox spacing="6.0"><Label fx:id="COtxt" text="0/" /><TextField fx:id="COtf" prefWidth="40.0" text="0" /><CheckBox fx:id="COEventCheckBox" text="CO" /></HBox>
+                            <HBox spacing="6.0"><Label fx:id="CPtxt" text="0/" /><TextField fx:id="CPtf" prefWidth="40.0" text="0" /><CheckBox fx:id="CPEventCheckBox" text="CP" /></HBox>
+                            <HBox spacing="6.0"><Label fx:id="CEtxt" text="0/" /><TextField fx:id="CEtf" prefWidth="40.0" text="0" /><CheckBox fx:id="CEEventCheckBox" text="CE" /></HBox>
+                            <HBox spacing="6.0"><Label fx:id="PBCtxt" text="0/" /><TextField fx:id="PBCtf" prefWidth="40.0" text="0" /><CheckBox fx:id="PBCEventCheckBox" text="PBC" /></HBox>
+                            <HBox spacing="6.0"><Label fx:id="PBFtxt" text="0/" /><TextField fx:id="PBFtf" prefWidth="40.0" text="0" /><CheckBox fx:id="PBFEventCheckBox" text="PBF" /></HBox>
+                        </VBox>
+
+                        <VBox spacing="6.0" GridPane.columnIndex="1">
+                            <HBox spacing="6.0"><Label fx:id="PSE2txt" text="0/" /><TextField fx:id="PSE2tf" prefWidth="40.0" text="0" /><CheckBox fx:id="PSE2EventCheckBox" text="PSE2" /></HBox>
+                            <HBox spacing="6.0"><Label fx:id="PSE1txt" text="0/" /><TextField fx:id="PSE1tf" prefWidth="40.0" text="0" /><CheckBox fx:id="PSE1EventCheckBox" text="PSE1" /></HBox>
+                            <HBox spacing="6.0"><Label fx:id="SSAtxt" text="0/" /><TextField fx:id="SSAtf" prefWidth="40.0" text="0" /><CheckBox fx:id="SSAEventCheckBox" text="SSA" /></HBox>
+                            <HBox spacing="6.0"><Label fx:id="VPSPtxt" text="0/" /><TextField fx:id="VPSPtf" prefWidth="40.0" text="0" /><CheckBox fx:id="VPSPEventCheckBox" text="VPSP" /></HBox>
+                        </VBox>
+                  <rowConstraints>
+                     <RowConstraints />
+                  </rowConstraints>
+                    </GridPane>
+
+                    <VBox spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label text="Date :" />
+                            <TextField fx:id="dateEventTextField" prefWidth="140.0" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label text="Horaire :" />
+                            <Label text="Début :" />
+                            <TextField fx:id="startDateEventTextField" prefWidth="60.0" />
+                            <Label text="Fin :" />
+                            <TextField fx:id="endDateEventTextField" prefWidth="60.0" />
+                        </HBox>
+						<!-- ComboBox "addSauv" -->
+                        <ComboBox fx:id="comboBoxAddSauv" onAction="#addSauv" prefHeight="35.0" prefWidth="250.0" promptText="Ajouter un sauveteur" />
+                    </VBox>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Bouton "Valider" -->
+    <bottom>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets bottom="20.0" />
+            </padding>
+            <Button fx:id="validEventPageButton" onAction="#validate" prefHeight="35.0" prefWidth="150.0" text="Valider" />
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rescuerSession.elements.RescuerEventCardController">
+   <children>
+      <Button fx:id="epreuveButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#goToEpreuve" style="-fx-background-color: 'transparent';" text="Button">
+         <graphic>
+            <VBox fx:id="vTxt" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="nomEpreuveTXt" text="[sport]" />
+                  <Label fx:id="dateEpreuveTxt" text="[date]" />
+               </children>
+            </VBox>
+         </graphic>
+      </Button>
+   </children>
+</VBox>
